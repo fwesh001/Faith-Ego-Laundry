@@ -243,9 +243,8 @@
         .filter((item) => state[item.name] > 0)
         .map((item) => `${state[item.name]}x ${item.name}`)
         .join(', ');
-      const basketText = basket || 'No items selected';
-      const total = `₦${currency(calculateTotal())}`;
-      const message = `Hello Faith Ego Laundry! I saw your website and want to book a service. My basket: ${basketText}. Estimated total: ${total}. Please confirm pickup details!`;
+      // Keep FAB/send message short — stop at "service" as requested
+      const message = `Hello Faith Ego Laundry! I saw your website and want to book a service.`;
       return `https://wa.me/2349030071786?text=${encodeURIComponent(message)}`;
     }
 
