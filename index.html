@@ -62,7 +62,7 @@
               <i class="fa-solid fa-arrow-down mr-2 text-lime-600"></i>
               Book a Pickup
             </a>
-            <a href="tel:09030071786" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/15">
+            <a id="heroWhatsApp" href="#" role="button" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/15">
               <i class="fa-brands fa-whatsapp mr-2 text-lime-300"></i> WhatsApp Us
             </a>
           </div>
@@ -231,6 +231,7 @@
     const totalPrice = document.getElementById('totalPrice');
     const whatsappBtn = document.getElementById('whatsappBtn');
     const fabWhatsApp = document.getElementById('fabWhatsApp');
+    const heroWhatsApp = document.getElementById('heroWhatsApp');
 
     const currency = (amount) => new Intl.NumberFormat('en-NG').format(amount);
 
@@ -308,6 +309,13 @@
     fabWhatsApp.addEventListener('click', () => {
       openWhatsApp();
     });
+
+    if (heroWhatsApp) {
+      heroWhatsApp.addEventListener('click', (e) => {
+        e.preventDefault();
+        openWhatsApp();
+      });
+    }
 
     render();
   </script>
