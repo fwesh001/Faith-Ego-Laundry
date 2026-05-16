@@ -1,14 +1,16 @@
 # Faith Ego Laundry Micro-Site
 
-A lightweight, mobile-first landing page for Faith Ego Laundry & Dry Cleaning. The site is designed to convert visitors into WhatsApp leads using a simple basket estimator and WhatsApp order link.
+A lightweight, mobile-first landing page for Faith Ego Laundry & Dry Cleaning. The site is designed to convert visitors into WhatsApp leads using a simple basket estimator and a fast contact flow.
 
 ## Features
 
-- Hero section with clear call-to-action
-- Services grid for the core laundry offerings
+- Hero section with primary booking CTA
+- WhatsApp contact button in the hero and a floating WhatsApp button
+- Services grid for laundry, dry cleaning, home service, industrial services, and collect & deliver
 - Interactive booking estimator with plus/minus controls
 - Live total price calculation
-- One-click WhatsApp order message generation
+- Pre-filled WhatsApp order message
+- Favicon support and Google Analytics tag
 - Mobile-first, fast, no-build setup
 
 ## Tech Stack
@@ -24,12 +26,12 @@ A lightweight, mobile-first landing page for Faith Ego Laundry & Dry Cleaning. T
 2. No installation or build step is required.
 3. Edit the content directly in the HTML file if needed.
 
-## How the Booking Estimator Works
+## How the Booking Flow Works
 
 - Add items using the plus and minus buttons.
 - The basket summary updates automatically.
 - The total estimated price updates in real time.
-- Clicking **Send Order via WhatsApp** opens a pre-filled WhatsApp message using the required format:
+- Clicking any WhatsApp button opens a pre-filled WhatsApp message using the required format:
   - `https://wa.me/2349030071786?text=[URL_ENCODED_MESSAGE]`
 
 ## Customization
@@ -40,6 +42,7 @@ You can update the following inside [index.html](index.html):
 - Service cards and icons
 - Contact numbers in the footer and booking panel
 - Brand colors in the Tailwind config
+- The favicon reference `favicon.png`
 - The flyer image reference `faith.jpg`
 
 ## Brand Guidelines Used
@@ -51,7 +54,9 @@ You can update the following inside [index.html](index.html):
 
 ## Assets
 
-The workspace includes [faith.jpg](faith.jpg), which can be used as the main flyer image or visual reference.
+The workspace includes [faith.jpg](faith.jpg), which is used as the main flyer image.
+The workspace also includes [favicon.png](favicon.png), which is used as the browser favicon.
+
 
 ## Deployment
 
@@ -63,7 +68,7 @@ This is a static site, so it can be deployed to any static hosting platform, suc
 - Cloudflare Pages
 - Any basic web server
 
-Upload [index.html](index.html) and [faith.jpg](faith.jpg) together so the hero image loads correctly.
+Upload [index.html](index.html), [faith.jpg](faith.jpg), and [favicon.png](favicon.png) together so the page loads correctly.
 
 ## Notes
 
