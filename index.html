@@ -232,18 +232,23 @@
       return items.reduce((sum, item) => sum + (state[item.name] * item.price), 0);
     }
 
-    function buildWhatsAppUrl() {
-      const basket = items
-        .filter((item) => state[item.name] > 0)
-        .map((item) => `${state[item.name]}x ${item.name}`)
-        .join(', ');
-      // Keep FAB/send message short — stop at "service" as requested
+    function buildShortWhatsAppUrl() {
       const message = `Hello Faith Ego Laundry! I saw your website and want to book a service.`;
       return `https://wa.me/2349030071786?text=${encodeURIComponent(message)}`;
     }
 
-    function openWhatsApp() {
-      window.open(buildWhatsAppUrl(), '_blank', 'noopener,noreferrer');
+    function buildOrderWhatsAppUrl() {
+      const basketItems = items.filter((item) => state[item.name] > 0);
+      const basketText = basketItems.length
+        ? basketItems.map((item) => `${state[item.name]}x ${item.name}`).join(', ')
+        : 'No items selected';
+      const total = `₦${currency(calculateTotal())}`;
+      const message = `Hello Faith Ego Laundry! I would like to place an order. My selected items are: ${basketText}. Estimated total: ${total}. Please confirm pickup details.`;
+      return `https://wa.me/2349030071786?text=${encodeURIComponent(message)}`;
+    }
+
+    function openWhatsApp(url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     function render() {
@@ -296,17 +301,17 @@
     });
 
     whatsappBtn.addEventListener('click', () => {
-      openWhatsApp();
+      openWhatsApp(buildOrderWhatsAppUrl());
     });
 
     fabWhatsApp.addEventListener('click', () => {
-      openWhatsApp();
+      openWhatsApp(buildShortWhatsAppUrl());
     });
 
     if (heroWhatsApp) {
       heroWhatsApp.addEventListener('click', (e) => {
         e.preventDefault();
-        openWhatsApp();
+        openWhatsApp(buildShortWhatsAppUrl());
       });
     }
 
